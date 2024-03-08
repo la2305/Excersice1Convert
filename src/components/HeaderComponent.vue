@@ -6,13 +6,13 @@
           <div class="first-page__nav-agency">AGENCY</div>
           <div class="first-page__nav-catalogue">
             <ul
+              :class="{ 'first-page__nav-catalogue-list-active': isActive }"
               class="first-page__nav-catalogue-list"
-              :class="{ 'first-page__nav-catalogue-list-active': isNavActive }"
             >
               <li class="first-page__nav-catalogue-item">
                 <i
                   class="first-page__nav-catalogue-item-link-icon fa-solid fa-x"
-                  @click="closeNav"
+                  @click="removeActiveClass"
                 ></i>
               </li>
               <li class="first-page__nav-catalogue-item">
@@ -35,7 +35,7 @@
               src="../assets/img/icon/bar.svg"
               alt=""
               class="first-page__nav-catalogue-button-img"
-              @click="toggleNav"
+              @click="toggleActiveClass"
             />
           </div>
         </div>
@@ -125,8 +125,8 @@
       <div class="second-page__header">
         <div class="second-page__header-container-button">
           <button
-            @click="previousSlide"
             class="second-page__header-button-left"
+            @click="firstPreButton"
           >
             <img
               class="second-page__header-button-left-img"
@@ -134,7 +134,10 @@
               alt=""
             />
           </button>
-          <button @click="nextSlide" class="second-page__header-button-right">
+          <button
+            class="second-page__header-button-right"
+            @click="firstNextButton"
+          >
             <img
               class="second-page__header-button-right-img"
               src="../assets/img/icon/arrow-right.svg"
@@ -156,8 +159,8 @@
         <div class="col l-6 m-6 c-12">
           <div class="second-page___body-video">
             <div
-              ref="background"
               class="second-page___body-video-background"
+              ref="secondPageBackground"
               @click="playVideo"
             >
               <img
@@ -186,7 +189,7 @@
             </div>
             <iframe
               class="second-page___body-video-src"
-              ref="video"
+              ref="secondPageVideo"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
@@ -226,95 +229,100 @@
   </div>
 </template>
 
-
-
 <script>
-import { ref } from "vue";
-
+import { onMounted, ref } from "vue";
 export default {
   setup() {
-    const isNavActive = ref(false);
+    // close nav firstPage
+    const isActive = ref(false);
+    // slide firstPage
+    let firstPageCurrentIndex = ref(0);
+    let isFirstPageShowSlide = true;
+    let firstPageSlides = ref([]);
+    // play video secondPage
+    let secondPageVideo = ref(null);
+    let secondPageBackground = ref(null);
 
-    const toggleNav = () => {
-      isNavActive.value = !isNavActive.value;
+    // close nav firstPage
+    const toggleActiveClass = () => {
+      isActive.value = !isActive.value;
     };
 
-    const closeNav = () => {
-      isNavActive.value = false;
+    const removeActiveClass = () => {
+      isActive.value = false;
     };
 
-    const handleClick = (e) => {
-      if (!e.target.closest(".first-page__nav-catalogue-button-img")) {
-        closeNav();
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".first-page__nav-catalogue")) {
+        isActive.value = false;
       }
     };
-
-    document.addEventListener("click", handleClick);
-
-    return {
-      isNavActive,
-      toggleNav,
-      closeNav,
+    // slide firstPage
+    const firstPreButton = () => {
+      firstPageCurrentIndex.value--;
+      if (firstPageCurrentIndex.value < 0) {
+        firstPageCurrentIndex.value = firstPageSlides.value.length - 1;
+      }
+      firstPageShowSlide(firstPageCurrentIndex.value);
     };
-  },
-  beforeUnmount() {
-    document.removeEventListener("click", this.handleClick);
-  },
-  data() {
-    return {
-      firstPageSlides: [],
-      firstPageCurrentIndex: 0,
-      isFirstPageShowSlide: true,
+    const firstNextButton = () => {
+      firstPageCurrentIndex.value++;
+      if (firstPageCurrentIndex.value >= firstPageSlides.value.length) {
+        firstPageCurrentIndex.value = 0;
+      }
+      firstPageShowSlide(firstPageCurrentIndex.value);
     };
-  },
-  mounted() {
-    this.firstPageSlides = document.querySelectorAll(
-      ".first-page__slider-item"
-    );
-    this.firstPageShowSlide(this.firstPageCurrentIndex);
-  },
-  methods: {
-    // slide page first
-    previousSlide() {
-      this.firstPageCurrentIndex--;
-      if (this.firstPageCurrentIndex < 0) {
-        this.firstPageCurrentIndex = this.firstPageSlides.length - 1;
+    const firstPageShowSlide = (index) => {
+      for (let i = 0; i < firstPageSlides.value.length; i++) {
+        firstPageSlides.value[i].style.display = "none";
       }
-      this.firstPageShowSlide(this.firstPageCurrentIndex);
-    },
-    nextSlide() {
-      this.firstPageCurrentIndex++;
-      if (this.firstPageCurrentIndex >= this.firstPageSlides.length) {
-        this.firstPageCurrentIndex = 0;
-      }
-      this.firstPageShowSlide(this.firstPageCurrentIndex);
-    },
-    firstPageShowSlide(index) {
-      for (let i = 0; i < this.firstPageSlides.length; i++) {
-        this.firstPageSlides[i].style.display = "none";
-      }
-      let slide = this.firstPageSlides[index];
-      if (this.isFirstPageShowSlide) {
-        slide.style.display = "block";
-        this.isFirstPageShowSlide = false;
+      if (isFirstPageShowSlide) {
+        firstPageSlides.value[index].style.display = "block";
+        isFirstPageShowSlide = false;
       } else {
-        slide.style.display = "block";
-        slide.style.animation = "fadeInAnimation 2s linear";
+        firstPageSlides.value[index].style.display = "block";
+        firstPageSlides.value[index].style.animation =
+          "fadeInAnimation 2s linear";
       }
-    },
-
-    // slide page second
-    playVideo() {
-      const secondPageBackground = this.$refs.background;
-      const secondPageVideo = this.$refs.video;
-      secondPageBackground.style.display = "none";
-      secondPageVideo.style.zIndex = "4";
-      secondPageVideo.src =
+    };
+    // play video secondPage
+    const playVideo = () => {
+      secondPageBackground.value.style.display = "none";
+      secondPageVideo.value.style.zIndex = "4";
+      secondPageVideo.value.src =
         "https://www.youtube.com/embed/h4Bq69HfR0Y?autoplay=1&loop=1&autopause=0&muted=1";
-    },
+    };
+
+    onMounted(() => {
+      // close nav firstPage
+      document.addEventListener("click", handleClickOutside);
+      // slide firstPage
+      firstPageSlides.value = Array.from(
+        document.querySelectorAll(".first-page__slider-item")
+      );
+      firstPageShowSlide(firstPageCurrentIndex.value);
+    });
+
+    return {
+      // close nav firstPage
+      isActive,
+      toggleActiveClass,
+      removeActiveClass,
+      // slide firstPage
+      firstPageCurrentIndex,
+      firstPageSlides,
+      firstPreButton,
+      firstNextButton,
+      firstPageShowSlide,
+      // play video secondPage
+      secondPageVideo,
+      secondPageBackground,
+      playVideo,
+    };
   },
 };
 </script>
+
 
 
 <style>
