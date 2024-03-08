@@ -20,6 +20,7 @@
         :modules="modules"
         :slides-per-view="2"
         :space-between="30"
+        :breakpoints="breakpoints"
         :loop="loop"
         :pagination="{ clickable: true }"
         @swiper="onSwiper"
@@ -149,6 +150,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
+
   setup() {
     const onSwiper = (swiper) => {
       console.log(swiper);
@@ -156,9 +158,22 @@ export default {
     const onSlideChange = () => {
       console.log("slide change");
     };
+
     return {
       onSwiper,
       onSlideChange,
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // when window width is >= 992px
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+      },
       loop: true,
       modules: [Pagination],
     };
@@ -166,34 +181,6 @@ export default {
 };
 </script>
 
-<!-- <script>
-import { onMounted } from "vue";
-
-// slick slide third page
-onMounted(() => {
-  $(".third-page__slider").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    arrows: false,
-    draggable: true,
-    dots: true,
-    autoplay: true,
-    mobileFirst: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
-    ],
-  });
-});
-</script> -->
 
 <style>
 /* third-page */
@@ -228,6 +215,7 @@ onMounted(() => {
   background-color: var(--purple-color);
   height: 288px;
   border-radius: 2px;
+  margin-bottom: 160px;
 }
 .third-page__slider-item.third-page__slider-item-green {
   background-color: var(--green-color);
@@ -290,6 +278,7 @@ onMounted(() => {
 .slick-dots .slick-active button {
   background-color: var(--purple-color);
 }
+
 .swiper-pagination-bullet {
   width: 20px;
   height: 20px;
@@ -301,7 +290,7 @@ onMounted(() => {
   background-color: #9013fe;
 }
 .swiper-pagination {
-  top: 250px !important;
+  top: 370px !important;
 }
 /* slick slider */
 </style>

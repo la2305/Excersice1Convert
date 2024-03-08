@@ -5,10 +5,14 @@
         <div class="first-page__nav">
           <div class="first-page__nav-agency">AGENCY</div>
           <div class="first-page__nav-catalogue">
-            <ul class="first-page__nav-catalogue-list">
+            <ul
+              class="first-page__nav-catalogue-list"
+              :class="{ 'first-page__nav-catalogue-list-active': isNavActive }"
+            >
               <li class="first-page__nav-catalogue-item">
                 <i
                   class="first-page__nav-catalogue-item-link-icon fa-solid fa-x"
+                  @click="closeNav"
                 ></i>
               </li>
               <li class="first-page__nav-catalogue-item">
@@ -31,6 +35,7 @@
               src="../assets/img/icon/bar.svg"
               alt=""
               class="first-page__nav-catalogue-button-img"
+              @click="toggleNav"
             />
           </div>
         </div>
@@ -221,8 +226,40 @@
   </div>
 </template>
 
+
+
 <script>
+import { ref } from "vue";
+
 export default {
+  setup() {
+    const isNavActive = ref(false);
+
+    const toggleNav = () => {
+      isNavActive.value = !isNavActive.value;
+    };
+
+    const closeNav = () => {
+      isNavActive.value = false;
+    };
+
+    const handleClick = (e) => {
+      if (!e.target.closest(".first-page__nav-catalogue-button-img")) {
+        closeNav();
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return {
+      isNavActive,
+      toggleNav,
+      closeNav,
+    };
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.handleClick);
+  },
   data() {
     return {
       firstPageSlides: [],
@@ -279,86 +316,6 @@ export default {
 };
 </script>
 
-
-<!-- 
-<script>
-// slide first page
-document.addEventListener("DOMContentLoaded", function () {
-  const firstPageSlides = document.querySelectorAll(".first-page__slider-item");
-  const firstPreButton = document.querySelector(
-    ".second-page__header-button-left"
-  );
-  const firstNextButton = document.querySelector(
-    ".second-page__header-button-right"
-  );
-  const firstPageNumber = document.querySelector(
-    ".second-page__header-button-pagination-page-number"
-  );
-  const firstPageTotalSlides = document.querySelector(
-    ".second-page__header-button-pagination-total-page-number"
-  );
-  let isFirstPageShowSlide = true;
-  let firstPageCurrentIndex = 0;
-
-  firstPageShowSlide(firstPageCurrentIndex);
-
-  firstPreButton.addEventListener("click", function () {
-    firstPageCurrentIndex--;
-    if (firstPageCurrentIndex < 0) {
-      firstPageCurrentIndex = firstPageSlides.length - 1;
-    }
-    firstPageShowSlide(firstPageCurrentIndex);
-  });
-
-  firstNextButton.addEventListener("click", function () {
-    firstPageCurrentIndex++;
-    if (firstPageCurrentIndex >= firstPageSlides.length) {
-      firstPageCurrentIndex = 0;
-    }
-    firstPageShowSlide(firstPageCurrentIndex);
-  });
-
-  function firstPageShowSlide(index) {
-    for (let i = 0; i < firstPageSlides.length; i++) {
-      firstPageSlides[i].style.display = "none";
-    }
-    firstPageNumber.textContent = index + 1;
-    firstPageTotalSlides.textContent = firstPageSlides.length;
-    if (isFirstPageShowSlide) {
-      firstPageSlides[index].style.display = "block";
-      isFirstPageShowSlide = false;
-    } else {
-      firstPageSlides[index].style.display = "block";
-      firstPageSlides[index].style.animation = "fadeInAnimation 2s linear";
-    }
-  }
-});
-</script> -->
-
-
-
-<!-- 
-<script>
-// nav bar first page
-const navIconFirstPage = document.querySelector(
-  ".first-page__nav-catalogue-button-img"
-);
-const navFirstPage = document.querySelector(".first-page__nav-catalogue-list");
-const iconXNavFirstPage = document.querySelector(
-  ".first-page__nav-catalogue-item-link-icon"
-);
-iconXNavFirstPage.addEventListener("click", function () {
-  navFirstPage.classList.remove("first-page__nav-catalogue-list-active");
-});
-document.onclick = function (e) {
-  if (navIconFirstPage.contains(e.target)) {
-    navFirstPage.classList.add("first-page__nav-catalogue-list-active");
-  } else if (!navFirstPage.contains(e.target)) {
-    navFirstPage.classList.remove("first-page__nav-catalogue-list-active");
-  }
-};
-
-</script> -->
 
 <style>
 /* first-page */

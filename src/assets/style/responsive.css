@@ -214,6 +214,9 @@
   .third-page__slider-item {
     height: 384px;
   }
+  .swiper-pagination {
+    top: 450px !important;
+  }
 
   /* four page */
   .four-page__header-project {
@@ -610,7 +613,9 @@
   .third-page__slider-item {
     height: 384px;
   }
-
+  .swiper-pagination {
+    top: 480px !important;
+  }
   /* four page */
   .four-page__header-project {
     width: 100%;
