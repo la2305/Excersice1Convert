@@ -1,5 +1,5 @@
 <template>
-  <div class="six-page">
+  <section class="six-page">
     <div class="grid wide">
       <div class="six-page__header">
         <div class="row b-gutter">
@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="five-page">
+  <section class="five-page">
     <div class="five-page__header">
       <div class="grid wide">
         <div class="five-page__header-container">
@@ -249,7 +249,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

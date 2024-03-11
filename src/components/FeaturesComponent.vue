@@ -1,5 +1,5 @@
 <template>
-  <div class="third-page">
+  <section class="third-page">
     <div class="grid wide">
       <div class="third-page__header">
         <div class="row b-gutter">
@@ -133,7 +133,7 @@
         </swiper-slide>
       </swiper>
     </div>
-  </div>
+  </section>
 </template>
 
 

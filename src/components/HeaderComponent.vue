@@ -6,8 +6,10 @@
           <div class="first-page__nav-agency">AGENCY</div>
           <div class="first-page__nav-catalogue">
             <ul
-              :class="{ 'first-page__nav-catalogue-list-active': isActive }"
               class="first-page__nav-catalogue-list"
+              :class="{
+                'first-page__nav-catalogue-list-active': isActiveClass,
+              }"
             >
               <li class="first-page__nav-catalogue-item">
                 <i
@@ -35,7 +37,7 @@
               src="../assets/img/icon/bar.svg"
               alt=""
               class="first-page__nav-catalogue-button-img"
-              @click="toggleActiveClass"
+              @click="addActiveClass"
             />
           </div>
         </div>
@@ -120,7 +122,7 @@
       </div>
     </div>
   </header>
-  <div class="second-page">
+  <section class="second-page">
     <div class="grid wide">
       <div class="second-page__header">
         <div class="second-page__header-container-button">
@@ -226,7 +228,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -234,7 +236,7 @@ import { onMounted, ref } from "vue";
 export default {
   setup() {
     // close nav firstPage
-    const isActive = ref(false);
+    const isActiveClass = ref(false);
     // slide firstPage
     let firstPageCurrentIndex = ref(0);
     let isFirstPageShowSlide = true;
@@ -244,17 +246,15 @@ export default {
     let secondPageBackground = ref(null);
 
     // close nav firstPage
-    const toggleActiveClass = () => {
-      isActive.value = !isActive.value;
+    const addActiveClass = () => {
+      isActiveClass.value = true;
     };
-
     const removeActiveClass = () => {
-      isActive.value = false;
+      isActiveClass.value = false;
     };
-
     const handleClickOutside = (event) => {
       if (!event.target.closest(".first-page__nav-catalogue")) {
-        isActive.value = false;
+        isActiveClass.value = false;
       }
     };
     // slide firstPage
@@ -305,8 +305,8 @@ export default {
 
     return {
       // close nav firstPage
-      isActive,
-      toggleActiveClass,
+      isActiveClass,
+      addActiveClass,
       removeActiveClass,
       // slide firstPage
       firstPageCurrentIndex,
