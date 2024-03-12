@@ -471,28 +471,46 @@ export default {
     height: unset;
   }
   .five-page__header-slider {
+    max-width: unset;
+    width: 100%;
+    height: 500px;
     position: unset;
   }
   .five-page__header-slider-article {
-    max-width: 88vw;
+    width: 100%;
     height: 640px;
     border-radius: 2px;
     position: unset;
   }
   .five-page__header-slider-article:nth-child(1) {
-    transform: translate(-250%);
+    transform: translate(0%);
+    display: none;
   }
   .five-page__header-slider-article:nth-child(2) {
-    transform: translate(-100%);
+    transform: translate(-150%);
+    display: none;
   }
+
   .five-page__header-slider-article:nth-child(3) {
+    opacity: 0;
+    animation: fade-in ease 1s forwards;
     transform: translate(0%);
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   .five-page__header-slider-article:nth-child(4) {
     transform: translate(180%);
+    display: none;
   }
   .five-page__header-slider-article:nth-child(n + 5) {
     transform: translate(290%);
+    display: none;
   }
   .five-page__header-main-content {
     position: unset;
@@ -534,28 +552,46 @@ export default {
     height: unset;
   }
   .five-page__header-slider {
+    max-width: unset;
+    width: 100%;
+    height: 500px;
     position: unset;
   }
   .five-page__header-slider-article {
-    max-width: 100vw;
+    width: 100%;
     height: 640px;
     border-radius: 2px;
     position: unset;
   }
   .five-page__header-slider-article:nth-child(1) {
-    transform: translate(-250%);
+    transform: translate(0%);
+    display: none;
   }
   .five-page__header-slider-article:nth-child(2) {
-    transform: translate(-80%);
+    transform: translate(-150%);
+    display: none;
   }
+
   .five-page__header-slider-article:nth-child(3) {
+    opacity: 0;
+    animation: fade-in ease 1s forwards;
     transform: translate(0%);
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   .five-page__header-slider-article:nth-child(4) {
     transform: translate(180%);
+    display: none;
   }
   .five-page__header-slider-article:nth-child(n + 5) {
     transform: translate(290%);
+    display: none;
   }
 
   .five-page__header-main-content {
