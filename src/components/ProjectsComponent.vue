@@ -159,7 +159,6 @@ function fourPageFilterData(category) {
 function fourPageRenderProjects(items) {
   const container = document.getElementById("data-container");
   items.forEach((item) => {
-    console.log(item.portfolio);
     const projectDiv = document.createElement("div");
     projectDiv.className = "four-page__body-panner-design";
     projectDiv.style.backgroundColor = item.color;
@@ -205,9 +204,6 @@ function updateLoadMoreButton(totalItems, category) {
     fourPageLoadMoreContainer.style.display = "block";
   }
 }
-
-let fourPageCategorySelect = document.getElementById("categorySelect");
-console.log("123", fourPageCategorySelect);
 
 onMounted(() => {
   // Lấy danh sách các danh mục
@@ -255,7 +251,6 @@ onMounted(() => {
     });
 
   let fourPageCategorySelect = document.getElementById("categorySelect");
-  console.log("123", fourPageCategorySelect);
   fourPageCategorySelect.addEventListener("change", function () {
     let selectedCategory = fourPageCategorySelect.value;
     fourPageFilterData(selectedCategory);
@@ -277,8 +272,6 @@ onMounted(() => {
 /* four-page */
 .four-page {
   background-color: var(--white-color);
-}
-.four-page__header {
 }
 .four-page__header-project {
   margin-top: 105px;
@@ -303,8 +296,7 @@ onMounted(() => {
   height: 2px;
   background-color: var(--black-color);
 }
-.four-page__body {
-}
+
 .four-page__body-category-main {
   font-family: "Roboto Condensed", serif;
   font-weight: 400;
@@ -416,6 +408,143 @@ onMounted(() => {
   line-height: 48px;
   letter-spacing: 1px;
   text-align: center;
+}
+/* mobile responsive */
+@media (min-width: 280px) and (max-width: 739px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  /* four page */
+  .four-page__header-project {
+    margin-top: 87px;
+    margin-bottom: 0px;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .four-page__header-content {
+    margin-top: 36px;
+    margin-bottom: 49px;
+  }
+  .four-page__body-panner-design {
+    width: 88vw;
+    height: 320px;
+  }
+  .four-page__body-panner-design-tag {
+    z-index: 1;
+    top: 155px;
+    left: 28px;
+  }
+  .four-page__body-panner-design-content {
+    top: 199px;
+    left: 28px;
+    z-index: 1;
+  }
+  .four-page__body-panner-design-img {
+    height: 302px;
+    width: 426px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+  .four-page__body-panner-design-img-dog {
+    height: 342px;
+    width: 274px;
+    position: absolute;
+    bottom: 0px;
+    left: 60px;
+  }
+  .four-page__body-category-main {
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 50px;
+    padding-bottom: 12px;
+  }
+  .four-page__body-category-list {
+    display: none;
+  }
+  #categorySelect {
+    display: block;
+    width: 100%;
+    height: 48px;
+    font-weight: 400;
+    font-family: "DM-sans-serif";
+    padding-left: 10px;
+    color: var(--black-color);
+    opacity: 50.3%;
+  }
+  #categorySelect .four-page__body-category-select-item {
+    font-size: 14px;
+    color: #c0c0c0;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1169px) {
+  .hide-on-tablet {
+    display: none;
+  }
+  /* four page */
+  .four-page__header-project {
+    width: 100%;
+    margin-top: 87px;
+    margin-bottom: 0px;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .four-page__header-content {
+    margin-top: 36px;
+    margin-bottom: 49px;
+  }
+  .four-page__body-panner-design {
+    width: 88vw;
+    height: 320px;
+  }
+  .four-page__body-panner-design-tag {
+    z-index: 1;
+    top: 155px;
+    left: 28px;
+  }
+  .four-page__body-panner-design-content {
+    top: 199px;
+    left: 28px;
+    z-index: 1;
+  }
+  .four-page__body-panner-design-img {
+    height: 370px;
+    width: 400px;
+    position: absolute;
+    bottom: 0px;
+    left: 308px;
+  }
+  .four-page__body-panner-design-img-dog {
+    height: 360px;
+    width: 350px;
+    position: absolute;
+    bottom: 0px;
+    left: 300px;
+  }
+  .four-page__body-category-main {
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 50px;
+    padding-bottom: 12px;
+  }
+  .four-page__body-category-list {
+    display: none;
+  }
+  #categorySelect {
+    display: block;
+    width: 250px;
+    height: 48px;
+    font-weight: 400;
+    font-family: "DM-sans-serif";
+    padding-left: 10px;
+    color: var(--black-color);
+    opacity: 50.3%;
+  }
+  #categorySelect .four-page__body-category-select-item {
+    font-size: 14px;
+    color: #c0c0c0;
+  }
 }
 </style>
 

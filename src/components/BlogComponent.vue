@@ -23,7 +23,7 @@
               <div class="six-page__blog-container-transition">
                 <img
                   src="../assets/img/img/7.png"
-                  alt=""
+                  alt="image"
                   class="six-page__blog-img"
                 />
                 <div class="six-page__blog-topic">design</div>
@@ -39,7 +39,7 @@
               <div class="six-page__blog-container-transition">
                 <img
                   src="../assets/img/img/8.png"
-                  alt=""
+                  alt="image"
                   class="six-page__blog-img"
                 />
                 <div class="six-page__blog-topic">Tech</div>
@@ -55,7 +55,7 @@
               <div class="six-page__blog-container-transition">
                 <img
                   src="../assets/img/img/9.png"
-                  alt=""
+                  alt="image"
                   class="six-page__blog-img"
                 />
                 <div class="six-page__blog-topic">Life</div>
@@ -107,6 +107,7 @@
   text-decoration: none;
 }
 .six-page__blog-container-transition {
+  width: 100%;
   transition: transform 0.3s ease;
   height: 520px;
 }
@@ -143,5 +144,78 @@
   line-height: 32px;
   color: var(--black-color);
   opacity: 50.13%;
+}
+/* mobile responsive */
+@media (min-width: 280px) and (max-width: 739px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  /* six page */
+  .six-page {
+    height: unset;
+    margin-bottom: 110px;
+  }
+  .six-page__header {
+    border-top: 2px solid var(--black-color);
+    margin-top: 20px;
+    padding-top: 85px;
+  }
+  .six-page__header-blog {
+    font-size: 40px;
+    line-height: 48px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .six-page__blog {
+    margin-top: unset;
+  }
+  .six-page__blog-container {
+    display: inline-block;
+    margin-top: 60px;
+  }
+  .six-page__blog-container-transition {
+    transition: unset;
+    height: unset;
+  }
+  .six-page__blog-container-transition:hover {
+    transform: unset;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1169px) {
+  .hide-on-tablet {
+    display: none;
+  }
+  /* six page */
+  .six-page {
+    height: unset;
+    margin-bottom: 110px;
+  }
+  .six-page__header {
+    border-top: 2px solid var(--black-color);
+    margin-top: 20px;
+    padding-top: 85px;
+  }
+  .six-page__header-blog {
+    font-size: 40px;
+    line-height: 48px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .six-page__blog {
+    margin-top: unset;
+  }
+  .six-page__blog-container {
+    display: inline-block;
+    margin-top: 60px;
+    width: 100%;
+  }
+  .six-page__blog-container-transition {
+    transition: unset;
+    height: unset;
+  }
+  .six-page__blog-container-transition:hover {
+    transform: unset;
+  }
 }
 </style>

@@ -21,7 +21,11 @@
         :slides-per-view="2"
         :space-between="30"
         :breakpoints="breakpoints"
-        :loop="loop"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+        }"
+        :loop="true"
         :pagination="{ clickable: true }"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
@@ -31,7 +35,7 @@
           <div class="third-page__slider-item-container">
             <img
               class="third-page__slider-item-container-icon"
-              alt=""
+              alt="image"
               src="../assets/img/icon/3-triangle.svg"
             />
             <div class="third-page__slider-item-container-header">
@@ -50,7 +54,7 @@
             <img
               class="third-page__slider-item-container-icon"
               src="../assets/img/icon/benzen.svg"
-              alt=""
+              alt="image"
             />
             <div class="third-page__slider-item-container-header">
               CODE EXPORT
@@ -68,7 +72,7 @@
             <img
               class="third-page__slider-item-container-icon"
               src="../assets/img/icon/benzen.svg"
-              alt=""
+              alt="image"
             />
             <div class="third-page__slider-item-container-header">
               CODE EXPORT
@@ -83,7 +87,7 @@
           <div class="third-page__slider-item-container">
             <img
               class="third-page__slider-item-container-icon"
-              alt=""
+              alt="image"
               src="../assets/img/icon/3-triangle.svg"
             />
             <div class="third-page__slider-item-container-header">
@@ -102,7 +106,7 @@
             <img
               class="third-page__slider-item-container-icon"
               src="../assets/img/icon/benzen.svg"
-              alt=""
+              alt="image"
             />
             <div class="third-page__slider-item-container-header">
               CODE EXPORT
@@ -120,7 +124,7 @@
             <img
               class="third-page__slider-item-container-icon"
               src="../assets/img/icon/benzen.svg"
-              alt=""
+              alt="image"
             />
             <div class="third-page__slider-item-container-header">
               CODE EXPORT
@@ -139,7 +143,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -164,7 +168,7 @@ export default {
       onSlideChange,
       breakpoints: {
         // when window width is >= 320px
-        320: {
+        280: {
           slidesPerView: 1,
           spaceBetween: 20,
         },
@@ -175,7 +179,7 @@ export default {
         },
       },
       loop: true,
-      modules: [Pagination],
+      modules: [Autoplay, Pagination],
     };
   },
 };
@@ -187,8 +191,6 @@ export default {
 .third-page {
   background-color: var(--black-color);
   height: 880px;
-}
-.third-page__header {
 }
 .third-page__header-features {
   color: var(--white-color);
@@ -292,5 +294,66 @@ export default {
 .swiper-pagination {
   top: 370px !important;
 }
-/* slick slider */
+
+/* responsive */
+/* mobile responsive */
+@media (min-width: 280px) and (max-width: 739px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  /* third page */
+  .third-page {
+    height: 1072px;
+  }
+
+  .third-page__header-features {
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 87px;
+  }
+  .third-page__header-content {
+    width: 100%;
+    height: 197px;
+    margin-top: 52px;
+  }
+  .third-page__slider {
+    margin-top: 80px;
+  }
+  .third-page__slider-item {
+    height: 384px;
+  }
+  .swiper-pagination {
+    top: 450px !important;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1169px) {
+  .hide-on-tablet {
+    display: none;
+  }
+  /* third page */
+  .third-page {
+    height: 1072px;
+  }
+
+  .third-page__header-features {
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 87px;
+  }
+  .third-page__header-content {
+    width: 100%;
+    height: 197px;
+    margin-top: 52px;
+  }
+  .third-page__slider {
+    margin-top: 80px;
+  }
+  .third-page__slider-item {
+    height: 384px;
+  }
+  .swiper-pagination {
+    top: 480px !important;
+  }
+}
 </style>

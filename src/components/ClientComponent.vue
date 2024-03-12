@@ -13,7 +13,7 @@
                 <div class="five-page__header-slider-article-container-user">
                   <img
                     src="../assets/img/img/5.png"
-                    alt=""
+                    alt="image"
                     class="five-page__header-slider-article-container-user-image"
                   />
                   <div
@@ -50,7 +50,7 @@
                 <div class="five-page__header-slider-article-container-user">
                   <img
                     src="../assets/img/img/6.png"
-                    alt=""
+                    alt="image"
                     class="five-page__header-slider-article-container-user-image"
                   />
                   <div
@@ -87,7 +87,7 @@
                 <div class="five-page__header-slider-article-container-user">
                   <img
                     src="../assets/img/img/5.png"
-                    alt=""
+                    alt="image"
                     class="five-page__header-slider-article-container-user-image"
                   />
                   <div
@@ -124,7 +124,7 @@
                 <div class="five-page__header-slider-article-container-user">
                   <img
                     src="../assets/img/img/6.png"
-                    alt=""
+                    alt="image"
                     class="five-page__header-slider-article-container-user-image"
                   />
                   <div
@@ -169,7 +169,7 @@
             <img
               class="second-page__header-button-left-img"
               src="../assets/img/icon/arrow-left.svg"
-              alt=""
+              alt="image"
             />
           </button>
           <button
@@ -179,7 +179,7 @@
             <img
               class="second-page__header-button-right-img"
               src="../assets/img/icon/arrow-right.svg"
-              alt=""
+              alt="image"
             />
           </button>
         </div>
@@ -192,7 +192,7 @@
               >
                 <img
                   src="../assets/img/img/Atlassian.svg"
-                  alt=""
+                  alt="image"
                   class="five-page__body-footer-item-img"
                 />
               </a>
@@ -204,7 +204,7 @@
               >
                 <img
                   src="../assets/img/img/slack.svg"
-                  alt=""
+                  alt="image"
                   class="five-page__body-footer-item-img"
                 />
               </a>
@@ -216,7 +216,7 @@
               >
                 <img
                   src="../assets/img/img/dropbox.svg"
-                  alt=""
+                  alt="image"
                   class="five-page__body-footer-item-img"
                 />
               </a>
@@ -228,7 +228,7 @@
               >
                 <img
                   src="../assets/img/img/shopify.svg"
-                  alt=""
+                  alt="image"
                   class="five-page__body-footer-item-img"
                 />
               </a>
@@ -240,7 +240,7 @@
               >
                 <img
                   src="../assets/img/img/Capture.svg"
-                  alt=""
+                  alt="image"
                   class="five-page__body-footer-item-img"
                 />
               </a>
@@ -393,8 +393,7 @@ export default {
   color: var(--white-color);
   opacity: 50.3%;
 }
-.five-page__body {
-}
+
 .five-page__body-button {
   display: flex;
   align-items: center;
@@ -412,8 +411,7 @@ export default {
   height: 100%;
   align-items: center;
 }
-.five-page__body-footer-item {
-}
+
 .five-page__body-footer-item-img:hover {
   opacity: 0.7;
 }
@@ -461,5 +459,133 @@ export default {
   left: 21px;
   width: 10px;
   height: 16px;
+}
+
+/* mobile responsive */
+@media (min-width: 280px) and (max-width: 739px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  /* five page */
+  .five-page {
+    height: unset;
+  }
+  .five-page__header-slider {
+    position: unset;
+  }
+  .five-page__header-slider-article {
+    max-width: 88vw;
+    height: 640px;
+    border-radius: 2px;
+    position: unset;
+  }
+  .five-page__header-slider-article:nth-child(1) {
+    transform: translate(-250%);
+  }
+  .five-page__header-slider-article:nth-child(2) {
+    transform: translate(-100%);
+  }
+  .five-page__header-slider-article:nth-child(3) {
+    transform: translate(0%);
+  }
+  .five-page__header-slider-article:nth-child(4) {
+    transform: translate(180%);
+  }
+  .five-page__header-slider-article:nth-child(n + 5) {
+    transform: translate(290%);
+  }
+  .five-page__header-main-content {
+    position: unset;
+    font-size: 40px;
+    line-height: 48px;
+    padding-top: 103px;
+    height: unset;
+    width: 100%;
+  }
+  .five-page__header-content {
+    position: unset;
+    margin-top: 36px;
+    margin-bottom: 69px;
+  }
+  .five-page__header-padding {
+    height: 512px;
+    width: 100%;
+  }
+  .five-page__body-button {
+    height: 208px;
+    justify-content: center;
+  }
+  .five-page__body-footer-list {
+    flex-direction: column;
+    margin: 40px;
+  }
+  .five-page__body-footer {
+    height: 542px;
+    border: unset;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1169px) {
+  .hide-on-tablet {
+    display: none;
+  }
+  /* five page */
+  .five-page {
+    height: unset;
+  }
+  .five-page__header-slider {
+    position: unset;
+  }
+  .five-page__header-slider-article {
+    max-width: 100vw;
+    height: 640px;
+    border-radius: 2px;
+    position: unset;
+  }
+  .five-page__header-slider-article:nth-child(1) {
+    transform: translate(-250%);
+  }
+  .five-page__header-slider-article:nth-child(2) {
+    transform: translate(-80%);
+  }
+  .five-page__header-slider-article:nth-child(3) {
+    transform: translate(0%);
+  }
+  .five-page__header-slider-article:nth-child(4) {
+    transform: translate(180%);
+  }
+  .five-page__header-slider-article:nth-child(n + 5) {
+    transform: translate(290%);
+  }
+
+  .five-page__header-main-content {
+    position: unset;
+    font-size: 40px;
+    line-height: 48px;
+    padding-top: 103px;
+    height: unset;
+    width: 100%;
+  }
+  .five-page__header-content {
+    position: unset;
+    margin-top: 36px;
+    margin-bottom: 69px;
+  }
+  .five-page__header-padding {
+    height: 512px;
+    width: 100%;
+  }
+  .five-page__body-button {
+    height: 208px;
+    justify-content: center;
+  }
+  .five-page__body-footer-list {
+    flex-direction: column;
+    margin: 40px;
+  }
+  .five-page__body-footer {
+    height: 542px;
+    border: unset;
+  }
 }
 </style>

@@ -35,7 +35,7 @@
             </ul>
             <img
               src="../assets/img/icon/bar.svg"
-              alt=""
+              alt="image"
               class="first-page__nav-catalogue-button-img"
               @click="addActiveClass"
             />
@@ -48,12 +48,12 @@
             </div>
             <img
               src="../assets/img/icon/square-point.svg"
-              alt=""
+              alt="image"
               class="first-page__slider-item-square-point"
             />
             <img
               src="../assets/img/icon/flower.svg"
-              alt=""
+              alt="image"
               class="first-page__slider-item-icon-flower"
             />
             <div class="first-page__slider-item-content">
@@ -62,7 +62,7 @@
             <div class="first-page__slider-item-box"></div>
             <img
               class="first-page__slider-item-box-img"
-              alt=""
+              alt="image"
               src="../assets/img/img/1.png"
             />
           </div>
@@ -72,12 +72,12 @@
             </div>
             <img
               src="../assets/img/icon/square-point.svg"
-              alt=""
+              alt="image"
               class="first-page__slider-item-square-point"
             />
             <img
               src="../assets/img/icon/flower.svg"
-              alt=""
+              alt="image"
               class="first-page__slider-item-icon-flower"
             />
             <div class="first-page__slider-item-content">
@@ -88,7 +88,7 @@
             ></div>
             <img
               class="first-page__slider-item-box-img"
-              alt=""
+              alt="image"
               src="../assets/img/img/1.png"
             />
           </div>
@@ -98,12 +98,12 @@
             </div>
             <img
               src="../assets/img/icon/square-point.svg"
-              alt=""
+              alt="image"
               class="first-page__slider-item-square-point"
             />
             <img
               src="../assets/img/icon/flower.svg"
-              alt=""
+              alt="image"
               class="first-page__slider-item-icon-flower"
             />
             <div class="first-page__slider-item-content">
@@ -114,7 +114,7 @@
             ></div>
             <img
               class="first-page__slider-item-box-img"
-              alt=""
+              alt="image"
               src="../assets/img/img/1.png"
             />
           </div>
@@ -133,7 +133,7 @@
             <img
               class="second-page__header-button-left-img"
               src="../assets/img/icon/arrow-left.svg"
-              alt=""
+              alt="image"
             />
           </button>
           <button
@@ -143,7 +143,7 @@
             <img
               class="second-page__header-button-right-img"
               src="../assets/img/icon/arrow-right.svg"
-              alt=""
+              alt="image"
             />
           </button>
           <div class="second-page__header-button-pagination">
@@ -167,24 +167,24 @@
             >
               <img
                 src="../assets/img/img/2.png"
-                alt=""
+                alt="image"
                 class="second-page___body-video-background-img"
               />
               <div class="second-page___body-video-background-oval"></div>
               <img
                 class="second-page___body-video-background-square-top"
-                alt=""
+                alt="image"
                 src="../assets/img/icon/square-point.svg"
               />
               <img
                 class="second-page___body-video-background-square-bottom"
-                alt=""
+                alt="image"
                 src="../assets/img/icon/square-point.svg"
               />
               <button class="second-page___body-video-background-button">
                 <img
                   class="second-page___body-video-background-button-icon"
-                  alt=""
+                  alt="image"
                   src="../assets/img/icon/Triangle.svg"
                 />
               </button>
@@ -374,9 +374,6 @@ export default {
 }
 .first-page__slider {
   position: relative;
-}
-.first-page__slider-item {
-  /* animation: fadeInAnimation 2s linear; */
 }
 @keyframes fadeInAnimation {
   0% {
@@ -570,8 +567,6 @@ export default {
   border: 0;
   cursor: pointer;
 }
-.second-page___body-video-background-button:hover {
-}
 .second-page___body-video-background-button-icon {
   position: absolute;
   left: 46px;
@@ -589,8 +584,6 @@ export default {
   position: relative;
   /* chú ý  */
   z-index: 3;
-}
-.second-page___body-content-background {
 }
 .second-page___body-content-title {
   margin-top: 231px;
@@ -660,5 +653,396 @@ export default {
 }
 .second-page___body-content-service-explore:hover {
   background-color: burlywood;
+}
+
+/* responsive */
+@media (min-width: 280px) and (max-width: 739px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  /* first-page */
+  .first-page {
+    height: 704px;
+  }
+  .first-page__nav-catalogue {
+    position: relative;
+  }
+  .first-page__nav-catalogue-list {
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #3e3e3f;
+    top: 0px;
+    right: 0px;
+    width: 180px;
+    z-index: 5;
+    text-align: start;
+    padding-top: 14px;
+    opacity: 0;
+    right: -500px;
+    transition: 0.5s;
+  }
+  .first-page__nav-catalogue-list-active {
+    opacity: 1;
+    right: 0;
+  }
+  .first-page__nav-catalogue-item {
+    margin-left: unset;
+  }
+  .first-page__nav-catalogue-item-link {
+    margin-left: 0;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: var(--white-color);
+    display: inline-block;
+    width: 100%;
+  }
+  .first-page__nav-catalogue-item-link:hover {
+    background-color: burlywood;
+  }
+  .first-page__nav-catalogue-item-link-icon {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-top: 4px;
+  }
+  .first-page__nav-catalogue-button-img {
+    display: block;
+    z-index: 4;
+    cursor: pointer;
+  }
+  .first-page__slider-item-main-content {
+    width: 312px;
+    height: 192px;
+    font-size: 40px;
+    line-height: 48px;
+    top: calc(119px - var(--height-nav-first-page));
+  }
+  .first-page__slider-item-icon-flower {
+    top: calc(350px - var(--height-nav-first-page));
+  }
+  .first-page__slider-item-content {
+    width: 229px;
+    height: 133px;
+    top: calc(347px - var(--height-nav-first-page));
+    left: 90px;
+  }
+  .first-page__slider-item-square-point {
+    position: absolute;
+    top: calc(471px - var(--height-nav-first-page));
+    left: 243px;
+  }
+  .first-page__slider-item-box {
+    width: 100%;
+    height: 360px;
+    position: absolute;
+    top: calc(560px - var(--height-nav-first-page));
+    left: 0px;
+  }
+  .first-page__slider-item-box-img {
+    width: 397px;
+    height: 298px;
+    position: absolute;
+    top: calc(591px - var(--height-nav-first-page));
+    left: -34px;
+  }
+
+  /* second-page */
+  .second-page {
+    height: 100%;
+  }
+  .second-page__header {
+    display: block;
+    height: 384px;
+    border-bottom: 2px solid var(--black-color);
+    position: relative;
+  }
+  .second-page__header-container-button {
+    height: 100%;
+    display: flex;
+    align-items: unset;
+    position: absolute;
+    top: 272px;
+  }
+  .second-page___body-video {
+    height: 527px;
+    width: 100%;
+    display: block;
+    align-items: unset;
+    position: relative;
+  }
+  .second-page___body-video-background {
+    width: 100%;
+    height: 340px;
+    position: absolute;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 136px;
+  }
+  .second-page___body-video-background-img {
+    width: 100%;
+    height: 100%;
+  }
+  .second-page___body-video-background-oval {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .second-page___body-video-background-square-top {
+    position: absolute;
+    top: -48px;
+    left: -20px;
+  }
+  .second-page___body-video-background-square-bottom {
+    display: none;
+  }
+  .second-page___body-video-background-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .second-page___body-video-background-button-icon {
+    position: absolute;
+    top: 38px;
+    left: 46px;
+  }
+  .second-page___body-video-src {
+    position: unset;
+    top: 100px;
+    left: 0px;
+    width: 100%;
+    height: 400px;
+    margin-top: 70px;
+  }
+  .second-page___body-content-title {
+    margin-top: 40px;
+    width: 312px;
+    height: 96px;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .second-page___body-content-center {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 2px;
+  }
+
+  .second-page___body-content-footer {
+    width: 100%;
+    height: 96px;
+    font-size: 16px;
+  }
+  .second-page___body-content-service {
+    margin-bottom: 112px;
+  }
+  .second-page___body-content-service-explore {
+    margin-left: 10px;
+    width: 150px;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1169px) {
+  .hide-on-tablet {
+    display: none;
+  }
+  /* first-page */
+  .first-page {
+    height: 704px;
+  }
+  .first-page__nav-catalogue {
+    position: relative;
+  }
+  .first-page__nav-catalogue-list {
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #3e3e3f;
+    top: 0px;
+    right: 0px;
+    width: 180px;
+    z-index: 5;
+    text-align: start;
+    padding-top: 14px;
+    opacity: 0;
+    right: -500px;
+    transition: 0.5s;
+  }
+  .first-page__nav-catalogue-list-active {
+    opacity: 1;
+    right: 0;
+  }
+  .first-page__nav-catalogue-item {
+    margin-left: unset;
+  }
+  .first-page__nav-catalogue-item-link {
+    margin-left: 0;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: var(--white-color);
+    display: inline-block;
+    width: 100%;
+  }
+  .first-page__nav-catalogue-item-link:hover {
+    background-color: burlywood;
+  }
+  .first-page__nav-catalogue-item-link-icon {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-top: 4px;
+  }
+  .first-page__nav-catalogue-button-img {
+    display: block;
+    z-index: 4;
+    cursor: pointer;
+  }
+  .first-page__slider-item-main-content {
+    width: 500px;
+    height: 192px;
+    font-size: 40px;
+    line-height: 48px;
+    top: calc(119px - var(--height-nav-first-page));
+  }
+  .first-page__slider-item-icon-flower {
+    top: calc(350px - var(--height-nav-first-page));
+  }
+  .first-page__slider-item-content {
+    width: 229px;
+    height: 133px;
+    top: calc(347px - var(--height-nav-first-page));
+    left: 90px;
+  }
+  .first-page__slider-item-square-point {
+    position: absolute;
+    top: 60px;
+    left: 600px;
+  }
+  .first-page__slider-item-box {
+    width: 50%;
+    height: 360px;
+    position: absolute;
+    top: 150px;
+    left: 330px;
+  }
+  .first-page__slider-item-box-img {
+    width: 397px;
+    height: 298px;
+    position: absolute;
+    top: 150px;
+    left: 330px;
+  }
+
+  /* second-page */
+  .second-page {
+    height: 100%;
+  }
+  .second-page__header {
+    display: block;
+    height: 200px;
+    border-bottom: 2px solid var(--black-color);
+    position: relative;
+  }
+  .second-page__header-container-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: unset;
+    top: 272px;
+  }
+  .second-page___body-video {
+    height: 527px;
+    width: 100%;
+    display: block;
+    align-items: unset;
+    position: relative;
+  }
+  .second-page___body-video-background {
+    width: 100%;
+    height: 340px;
+    position: absolute;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 136px;
+  }
+  .second-page___body-video-background-img {
+    width: 100%;
+    height: 100%;
+  }
+  .second-page___body-video-background-oval {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .second-page___body-video-background-square-top {
+    position: absolute;
+    top: -48px;
+    left: -20px;
+  }
+  .second-page___body-video-background-square-bottom {
+    display: none;
+  }
+  .second-page___body-video-background-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .second-page___body-video-background-button-icon {
+    position: absolute;
+    top: 38px;
+    left: 46px;
+  }
+  .second-page___body-video-src {
+    position: unset;
+    top: 100px;
+    left: 0px;
+    width: 100%;
+    height: 400px;
+    margin-top: 70px;
+  }
+  .second-page___body-content-title {
+    margin-top: 80px;
+    width: 312px;
+    height: 96px;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .second-page___body-content-center {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 2px;
+  }
+
+  .second-page___body-content-footer {
+    width: 100%;
+    height: 96px;
+    font-size: 16px;
+  }
+  .second-page___body-content-service {
+    margin-bottom: 112px;
+  }
+  .second-page___body-content-service-explore {
+    margin-left: 10px;
+    width: 150px;
+  }
 }
 </style>

@@ -74,7 +74,7 @@
                       <a href="#" class="seven-page__footer-item-social-link">
                         <img
                           src="../assets/img/icon/facebook.svg"
-                          alt=""
+                          alt="image"
                           class="seven-page__footer-item-social-icon"
                         />
                       </a>
@@ -83,7 +83,7 @@
                       <a href="#" class="seven-page__footer-item-social-link">
                         <img
                           src="../assets/img/icon/twitter.svg"
-                          alt=""
+                          alt="image"
                           class="seven-page__footer-item-social-icon"
                         />
                       </a>
@@ -92,7 +92,7 @@
                       <a href="#" class="seven-page__footer-item-social-link">
                         <img
                           src="../assets/img/icon/instagram.svg"
-                          alt=""
+                          alt="image"
                           class="seven-page__footer-social-item-icon"
                         />
                       </a>
@@ -226,6 +226,77 @@
   font-size: 24px;
   cursor: pointer;
 }
-.seven-page__footer-item-social-icon {
+
+/* mobile responsive */
+@media (min-width: 280px) and (max-width: 739px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  /* seven page */
+  .seven-page {
+    height: unset;
+  }
+  .seven-page__header {
+    width: 213px;
+    height: 144px;
+  }
+  .seven-page__subscribe {
+    background-color: var(--primary-color);
+    position: unset;
+    width: 100%;
+    height: 288px;
+    border-radius: 2px;
+  }
+  .seven-page__subscribe-container {
+    padding: 43px 48px;
+    margin: unset;
+  }
+  .seven-page__border {
+    border-bottom: unset;
+    margin-bottom: 44px;
+  }
+  .seven-page__footer-head {
+    margin-top: 80px;
+  }
+  .seven-page__footer-list-social {
+    margin: 85px 0 96px;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1169px) {
+  .hide-on-tablet {
+    display: none;
+  }
+  /* seven page */
+  .seven-page {
+    height: unset;
+  }
+  .seven-page__header {
+    width: 100%;
+    height: 144px;
+    line-height: 144px;
+    margin: 30px 0;
+  }
+  .seven-page__subscribe {
+    background-color: var(--primary-color);
+    position: unset;
+    width: 100%;
+    height: 288px;
+    border-radius: 2px;
+  }
+  .seven-page__subscribe-container {
+    padding: 43px 48px;
+    margin: unset;
+  }
+  .seven-page__border {
+    border-bottom: unset;
+    margin-bottom: 44px;
+  }
+  .seven-page__footer-head {
+    margin-top: 80px;
+  }
+  .seven-page__footer-list-social {
+    margin: 85px 0 96px;
+  }
 }
 </style>
